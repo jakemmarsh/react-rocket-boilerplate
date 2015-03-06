@@ -117,7 +117,9 @@ var DocumentTitle = React.createClass({
   },
 
   componentWillMount: function () {
-    DocumentTitle.originalTitle = document.title;
+    if ( !DocumentTitle.originalTitle ) {
+      DocumentTitle.originalTitle = document.title;
+    }
 
     DocumentTitle.mountedInstances.push(this);
     DocumentTitle.updateDocumentTitle();
