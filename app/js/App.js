@@ -11,19 +11,6 @@ var Footer       = require('./components/Footer');
 
 var App = React.createClass({
 
-  updatePageTitle: function(title) {
-    var newPageTitle = '';
-
-    if ( title ) {
-      newPageTitle += title;
-      newPageTitle += ' \u2014 ';
-    }
-
-    newPageTitle += 'App Name';
-
-    document.title = newPageTitle;
-  },
-
   render: function() {
     return (
       <div>

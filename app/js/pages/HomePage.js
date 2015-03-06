@@ -3,8 +3,10 @@
  */
 'use strict';
 
-var React = require('react/addons');
-var Link  = React.createFactory(require('react-router').Link);
+var React         = require('react/addons');
+var Link          = React.createFactory(require('react-router').Link);
+
+var DocumentTitle = require('../components/DocumentTitle');
 
 var HomePage = React.createClass({
 
@@ -19,6 +21,8 @@ var HomePage = React.createClass({
   render: function() {
     return (
       <section className="home-page">
+
+        <DocumentTitle title="Home" />
 
         <div>
           Home
