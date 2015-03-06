@@ -19,9 +19,9 @@ Now that `gulp dev` is running, the server is up as well and serving files from 
 
 This boilerplate uses the latest versions of the following libraries:
 
-- [https://github.com/facebook/react](ReactJS)
-- [https://github.com/rackt/react-router](React Router)
-- [https://github.com/spoike/refluxjs](RefluxJS)
+- [ReactJS](https://github.com/facebook/react)
+- [React Router](https://github.com/rackt/react-router)
+- [RefluxJS](https://github.com/spoike/refluxjs)
 - [SASS](http://sass-lang.com/)
 - [Gulp](http://gulpjs.com/)
 - [Browserify](http://browserify.org/)
