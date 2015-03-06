@@ -10,11 +10,13 @@ var Header = React.createClass({
   render: function() {
     return (
       <header>
+
         Header
+
       </header>
     );
   }
 
 });
 
-module.exports = Header;
+module.exports = React.createFactory(Header);

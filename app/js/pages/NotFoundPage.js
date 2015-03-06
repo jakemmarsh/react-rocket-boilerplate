@@ -25,4 +25,4 @@ var NotFoundPage = React.createClass({
 
 });
 
-module.exports = NotFoundPage;
+module.exports = React.createFactory(NotFoundPage);

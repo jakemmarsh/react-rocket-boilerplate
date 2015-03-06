@@ -4,6 +4,7 @@
 'use strict';
 
 var React = require('react/addons');
+var Link  = React.createFactory(require('react-router').Link);
 
 var HomePage = React.createClass({
 
@@ -18,11 +19,19 @@ var HomePage = React.createClass({
   render: function() {
     return (
       <section className="home-page">
-        Home
+
+        <div>
+          Home
+        </div>
+
+        <div>
+          <Link to="Search">Search</Link>
+        </div>
+
       </section>
     );
   }
 
 });
 
-module.exports = HomePage;
+module.exports = React.createFactory(HomePage);
