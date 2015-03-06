@@ -10,6 +10,7 @@ var watchify     = require('watchify');
 var browserify   = require('browserify');
 var reactify     = require('reactify');
 var uglify       = require('gulp-uglify');
+var browserSync  = require('browser-sync');
 var handleErrors = require('../util/handle-errors');
 var config       = require('../config');
 
@@ -41,7 +42,8 @@ function buildScript(file, watch) {
     .pipe(streamify(rename({
       basename: 'main'
     })))
-    .pipe(gulp.dest(config.scripts.dest));
+    .pipe(gulp.dest(config.scripts.dest))
+    .pipe(gulpif(browserSync.active, browserSync.reload({ stream: true, once: true })));
   }
 
   return rebundle();

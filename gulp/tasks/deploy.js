@@ -3,7 +3,7 @@
 var gulp   = require('gulp');
 //var config = require('../config');
 
-gulp.task('deploy', function() {
+gulp.task('deploy', ['prod'], function() {
 
   // Deploy to hosting environment
 
