@@ -3,13 +3,37 @@
  */
 'use strict';
 
-var React        = require('react/addons');
-var RouteHandler = React.createFactory(require('react-router').RouteHandler);
+var React              = require('react/addons');
+var Reflux             = require('reflux');
+var RouteHandler       = React.createFactory(require('react-router').RouteHandler);
 
-var Header       = require('./components/Header');
-var Footer       = require('./components/Footer');
+var CurrentUserActions = require('./actions/CurrentUserActions');
+var CurrentUserStore   = require('./stores/CurrentUserStore');
+var Header             = require('./components/Header');
+var Footer             = require('./components/Footer');
 
 var App = React.createClass({
+
+  mixins: [Reflux.ListenerMixin],
+
+  getInitialState: function() {
+    return {
+      currentUser: {}
+    };
+  },
+
+  _onUserChange: function(err, user) {
+    if ( err ) {
+      this.setState({ error: err });
+    } else {
+      this.setState({ currentUser: user || {}, error: null });
+    }
+  },
+
+  componentDidMount: function() {
+    CurrentUserActions.checkLoginStatus(this._onUserChange);
+    this.listenTo(CurrentUserStore, this._onUserChange);
+  },
 
   render: function() {
     return (
@@ -19,7 +43,7 @@ var App = React.createClass({
 
         <RouteHandler params={this.props.params}
                       query={this.props.query}
-                      updatePageTitle={this.updatePageTitle} />
+                      currentUser={this.state.currentUser} />
 
         <Footer />
 

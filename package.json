@@ -39,6 +39,11 @@
     "morgan": "^1.5.1",
     "express": "^4.12.2",
     "browser-sync": "^2.2.2",
-    "gulp-autoprefixer": "^2.1.0"
+    "gulp-autoprefixer": "^2.1.0",
+    "humps": "^0.4.2",
+    "when": "^3.7.2",
+    "reflux": "^0.2.5",
+    "superagent": "^0.21.0",
+    "lodash": "^3.3.1"
   }
 }

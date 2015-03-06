@@ -10,11 +10,7 @@ var DocumentTitle = require('../components/DocumentTitle');
 var NotFoundPage = React.createClass({
 
   propTypes: {
-    updatePageTitle: React.PropTypes.func
-  },
-
-  componentDidMount: function() {
-    this.props.updatePageTitle('Not Found');
+    currentUser: React.PropTypes.object.isRequired
   },
 
   render: function() {

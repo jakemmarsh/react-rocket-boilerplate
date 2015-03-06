@@ -11,11 +11,7 @@ var DocumentTitle = require('../components/DocumentTitle');
 var SearchPage = React.createClass({
 
   propTypes: {
-    updatePageTitle: React.PropTypes.func
-  },
-
-  componentDidMount: function() {
-    this.props.updatePageTitle('Search');
+    currentUser: React.PropTypes.object.isRequired
   },
 
   render: function() {

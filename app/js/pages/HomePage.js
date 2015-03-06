@@ -11,11 +11,7 @@ var DocumentTitle = require('../components/DocumentTitle');
 var HomePage = React.createClass({
 
   propTypes: {
-    updatePageTitle: React.PropTypes.func
-  },
-
-  componentDidMount: function() {
-    this.props.updatePageTitle('Home');
+    currentUser: React.PropTypes.object.isRequired
   },
 
   render: function() {
