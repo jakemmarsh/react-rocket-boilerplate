@@ -9,10 +9,18 @@ var AuthenticatedRouteMixin = {
 
   mixins: [Navigation],
 
-  componentDidUpdate: function() {
+  _checkIfRedirect: function() {
     if ( _.isEmpty(CurrentUserStore.user) && CurrentUserStore.hasBeenChecked && this.isMounted() ) {
       this.replaceWith('Home');
     }
+  },
+
+  componentDidMount: function() {
+    this._checkIfRedirect();
+  },
+
+  componentDidUpdate: function() {
+    this._checkIfRedirect();
   }
 
 };
