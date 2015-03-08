@@ -37,6 +37,7 @@ var CurrentTrackStore = Reflux.createStore({
         this.hasBeenChecked = true;
         this.setuser(user, cb);
       }.bind(this)).catch(function(err) {
+        this.hasBeenChecked = true;
         this.throwError(err, cb);
       }.bind(this));
     }
