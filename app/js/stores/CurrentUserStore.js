@@ -35,7 +35,7 @@ var CurrentTrackStore = Reflux.createStore({
     } else {
       AuthAPI.checkLoginStatus().then(function(user) {
         this.hasBeenChecked = true;
-        this.setuser(user, cb);
+        this.setUser(user, cb);
       }.bind(this)).catch(function(err) {
         this.hasBeenChecked = true;
         this.throwError(err, cb);
