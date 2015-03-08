@@ -30,6 +30,10 @@ var App = React.createClass({
     }
   },
 
+  componentWillMount: function() {
+    console.log('About to mount App');
+  },
+
   componentDidMount: function() {
     CurrentUserActions.checkLoginStatus(this._onUserChange);
     this.listenTo(CurrentUserStore, this._onUserChange);

@@ -5,6 +5,7 @@ var gulpif       = require('gulp-if');
 var gutil        = require('gulp-util');
 var source       = require('vinyl-source-stream');
 var streamify    = require('gulp-streamify');
+var sourcemaps   = require('gulp-sourcemaps');
 var rename       = require('gulp-rename');
 var watchify     = require('watchify');
 var browserify   = require('browserify');
@@ -29,7 +30,6 @@ function buildScript(file, watch) {
     bundler = watchify(bundler);
     bundler.on('update', function() {
       rebundle();
-      gutil.log('Rebundle...');
     });
   }
 
@@ -37,12 +37,16 @@ function buildScript(file, watch) {
 
   function rebundle() {
     var stream = bundler.bundle();
+
+    gutil.log('Rebundle...');
+
     return stream.on('error', handleErrors)
     .pipe(source(file))
     .pipe(gulpif(global.isProd, streamify(uglify())))
     .pipe(streamify(rename({
       basename: 'main'
     })))
+    .pipe(gulpif(!global.isProd, sourcemaps.write('./')))
     .pipe(gulp.dest(config.scripts.dest))
     .pipe(gulpif(browserSync.active, browserSync.reload({ stream: true, once: true })));
   }
