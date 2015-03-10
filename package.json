@@ -21,6 +21,7 @@
   "devDependencies": {
     "browser-sync": "^2.2.2",
     "browserify": "^5.10.0",
+    "debowerify": "^1.2.0",
     "del": "^0.1.3",
     "express": "^4.12.2",
     "gulp": "^3.8.8",

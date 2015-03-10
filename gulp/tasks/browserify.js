@@ -12,6 +12,7 @@ var browserify   = require('browserify');
 var reactify     = require('reactify');
 var uglify       = require('gulp-uglify');
 var browserSync  = require('browser-sync');
+var debowerify   = require('debowerify');
 var handleErrors = require('../util/handle-errors');
 var config       = require('../config');
 
@@ -34,6 +35,7 @@ function buildScript(file, watch) {
   }
 
   bundler.transform(reactify);
+  bundler.transform(debowerify);
 
   function rebundle() {
     var stream = bundler.bundle();
