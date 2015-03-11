@@ -9,7 +9,7 @@ var sourcemaps   = require('gulp-sourcemaps');
 var rename       = require('gulp-rename');
 var watchify     = require('watchify');
 var browserify   = require('browserify');
-var reactify     = require('reactify');
+var babelify     = require('babelify');
 var uglify       = require('gulp-uglify');
 var browserSync  = require('browser-sync');
 var debowerify   = require('debowerify');
@@ -34,7 +34,7 @@ function buildScript(file, watch) {
     });
   }
 
-  bundler.transform(reactify);
+  bundler.transform(babelify);
   bundler.transform(debowerify);
 
   function rebundle() {

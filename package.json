@@ -19,6 +19,7 @@
     "node": ">=0.10.26"
   },
   "devDependencies": {
+    "babelify": "^5.0.4",
     "browser-sync": "^2.2.2",
     "browserify": "^5.10.0",
     "debowerify": "^1.2.0",
@@ -40,7 +41,6 @@
     "morgan": "^1.5.1",
     "react": "^0.12.x",
     "react-router": "^0.11.x",
-    "reactify": "^1.0.x",
     "reflux": "^0.2.5",
     "run-sequence": "^0.3.6",
     "superagent": "^0.21.0",
