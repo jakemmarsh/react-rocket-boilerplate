@@ -16,4 +16,4 @@ var Header = React.createClass({
 
 });
 
-module.exports = React.createFactory(Header);
+module.exports = Header;

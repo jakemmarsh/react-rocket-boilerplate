@@ -1,7 +1,7 @@
 'use strict';
 
 var React         = require('react/addons');
-var Link          = React.createFactory(require('react-router').Link);
+var Link          = require('react-router').Link;
 
 var DocumentTitle = require('../components/DocumentTitle');
 
@@ -31,4 +31,4 @@ var HomePage = React.createClass({
 
 });
 
-module.exports = React.createFactory(HomePage);
+module.exports = HomePage;

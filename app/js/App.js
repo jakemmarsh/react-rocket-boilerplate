@@ -2,7 +2,7 @@
 
 var React              = require('react/addons');
 var Reflux             = require('reflux');
-var RouteHandler       = React.createFactory(require('react-router').RouteHandler);
+var RouteHandler       = require('react-router').RouteHandler;
 
 var CurrentUserActions = require('./actions/CurrentUserActions');
 var CurrentUserStore   = require('./stores/CurrentUserStore');

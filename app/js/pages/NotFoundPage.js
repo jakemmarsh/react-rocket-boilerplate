@@ -24,4 +24,4 @@ var NotFoundPage = React.createClass({
 
 });
 
-module.exports = React.createFactory(NotFoundPage);
+module.exports = NotFoundPage;
