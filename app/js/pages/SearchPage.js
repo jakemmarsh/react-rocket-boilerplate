@@ -2,8 +2,7 @@
 
 var React         = require('react/addons');
 var Link          = require('react-router').Link;
-
-var DocumentTitle = require('../components/DocumentTitle');
+var DocumentTitle = require('react-document-title');
 
 var SearchPage = React.createClass({
 
@@ -13,19 +12,19 @@ var SearchPage = React.createClass({
 
   render: function() {
     return (
-      <section className="search-page">
+      <DocumentTitle title="Search">
+        <section className="search-page">
 
-        <DocumentTitle title="Search" />
+          <div>
+            Search
+          </div>
 
-        <div>
-          Search
-        </div>
+          <div>
+            <Link to="Home">Back to Home</Link>
+          </div>
 
-        <div>
-          <Link to="Home">Back to Home</Link>
-        </div>
-
-      </section>
+        </section>
+      </DocumentTitle>
     );
   }
 
