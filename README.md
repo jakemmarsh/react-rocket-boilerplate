@@ -42,7 +42,6 @@ The ReactJS files are all located within `/app/js`, structured in the following 
 
 ```
 /components
-  - DocumentTitle.js (Used on each page to set the appropriate document title as the user navigates the app.)
   - Footer.js (Simple, static footer component rendered on all pages.)
   - Header.js (Simple, static header component rendered on all pages.)
 /mixins
