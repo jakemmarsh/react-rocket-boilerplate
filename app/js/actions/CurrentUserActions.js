@@ -1,6 +1,6 @@
 'use strict';
 
-var Reflux = require('reflux');
+import Reflux from 'reflux';
 
 var CurrentUserActions = Reflux.createActions([
 
@@ -10,4 +10,4 @@ var CurrentUserActions = Reflux.createActions([
 
 ]);
 
-module.exports = CurrentUserActions;
+export default CurrentUserActions;

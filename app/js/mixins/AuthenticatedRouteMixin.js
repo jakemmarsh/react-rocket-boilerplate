@@ -1,28 +1,28 @@
 'use strict';
 
-var _                = require('lodash');
-var Navigation       = require('react-router').Navigation;
+import _                from 'lodash';
+import {Navigation}     from 'react-router';
 
-var CurrentUserStore = require('../stores/CurrentUserStore');
+import CurrentUserStore from '../stores/CurrentUserStore';
 
 var AuthenticatedRouteMixin = {
 
   mixins: [Navigation],
 
-  _checkIfRedirect: function() {
+  _checkIfRedirect() {
     if ( _.isEmpty(CurrentUserStore.user) && CurrentUserStore.hasBeenChecked && this.isMounted() ) {
       this.replaceWith('Home');
     }
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this._checkIfRedirect();
   },
 
-  componentDidUpdate: function() {
+  componentDidUpdate() {
     this._checkIfRedirect();
   }
 
 };
 
-module.exports = AuthenticatedRouteMixin;
+export default AuthenticatedRouteMixin;

@@ -1,8 +1,8 @@
 'use strict';
 
-var React         = require('react/addons');
-var Link          = require('react-router').Link;
-var DocumentTitle = require('react-document-title');
+import React         from 'react/addons';
+import {Link}        from 'react-router';
+import DocumentTitle from 'react-document-title';
 
 var SearchPage = React.createClass({
 
@@ -10,7 +10,7 @@ var SearchPage = React.createClass({
     currentUser: React.PropTypes.object.isRequired
   },
 
-  render: function() {
+  render() {
     return (
       <DocumentTitle title="Search">
         <section className="search-page">
@@ -30,4 +30,4 @@ var SearchPage = React.createClass({
 
 });
 
-module.exports = SearchPage;
+export default SearchPage;

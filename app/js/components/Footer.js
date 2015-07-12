@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react/addons');
+import React from 'react/addons';
 
 var Footer = React.createClass({
 
-  render: function() {
+  render() {
     return (
       <footer>
 
@@ -16,4 +16,4 @@ var Footer = React.createClass({
 
 });
 
-module.exports = Footer;
+export default Footer;

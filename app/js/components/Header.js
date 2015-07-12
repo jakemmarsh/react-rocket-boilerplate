@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react/addons');
+import React from 'react/addons';
 
 var Header = React.createClass({
 
-  render: function() {
+  render() {
     return (
       <header>
 
@@ -16,4 +16,4 @@ var Header = React.createClass({
 
 });
 
-module.exports = Header;
+export default Header;

@@ -1,15 +1,15 @@
 'use strict';
 
-var React  = require('react/addons');
-var Router = require('react-router');
+import React  from 'react/addons';
+import Router from 'react-router';
 
-var routes = require('./Routes');
+import routes from './Routes';
 
 if ( process.env.NODE_ENV !== 'production' ) {
   // Enable React devtools
   window.React = React;
 }
 
-Router.run(routes, Router.HistoryLocation, function(Handler, state) {
+Router.run(routes, Router.HistoryLocation, (Handler, state) => {
   React.render(<Handler params={state.params} query={state.query} />, document.getElementById('app'));
 });

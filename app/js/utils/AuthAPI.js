@@ -1,21 +1,21 @@
 'use strict';
 
-var APIUtils = require('./APIUtils');
+import APIUtils from './APIUtils';
 
 var AuthAPI = {
 
-  checkLoginStatus: function() {
+  checkLoginStatus() {
     return APIUtils.get('auth/check');
   },
 
-  login: function(user) {
+  login(user) {
     return APIUtils.post('auth/login', user);
   },
 
-  logout: function() {
+  logout() {
     return APIUtils.post('auth/logout');
   }
 
 };
 
-module.exports = AuthAPI;
+export default AuthAPI;

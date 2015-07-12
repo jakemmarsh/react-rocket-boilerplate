@@ -1,13 +1,13 @@
 'use strict';
 
-var Reflux             = require('reflux');
+import Reflux             from 'reflux';
 
-var CurrentUserActions = require('../actions/CurrentUserActions');
-var AuthAPI            = require('../utils/AuthAPI');
+import CurrentUserActions from '../actions/CurrentUserActions';
+import AuthAPI            from '../utils/AuthAPI';
 
-var CurrentTrackStore = Reflux.createStore({
+var CurrentUserStore = Reflux.createStore({
 
-  init: function() {
+  init() {
     this.user = null;
     this.hasBeenChecked = false;
 
@@ -16,51 +16,45 @@ var CurrentTrackStore = Reflux.createStore({
     this.listenTo(CurrentUserActions.logout, this.logoutUser);
   },
 
-  setUser: function(user, cb) {
+  setUser(user, cb = function(){}) {
     this.user = user;
     cb(null, this.user);
     this.trigger(null, this.user);
   },
 
-  throwError: function(err, cb) {
+  throwError(err, cb) {
     cb(err);
     this.trigger(err);
   },
 
-  checkLoginStatus: function(cb) {
-    cb = cb || function() {};
-
+  checkLoginStatus(cb = function(){}) {
     if ( this.user ) {
       this.setUser(this.user, cb);
     } else {
-      AuthAPI.checkLoginStatus().then(function(user) {
+      AuthAPI.checkLoginStatus().then(user => {
         this.hasBeenChecked = true;
         this.setUser(user, cb);
-      }.bind(this)).catch(function(err) {
+      }).catch(err => {
         this.hasBeenChecked = true;
         this.throwError(err, cb);
-      }.bind(this));
+      });
     }
   },
 
-  loginUser: function(user, cb) {
-    cb = cb || function() {};
-
-    AuthAPI.login(user).then(function(user) {
+  loginUser(user, cb = function(){}) {
+    AuthAPI.login(user).then(user => {
       this.setUser(user, cb);
-    }.bind(this)).catch(function(err) {
+    }).catch(err => {
       this.throwError(err, cb);
-    }.bind(this));
+    });
   },
 
-  logoutUser: function(cb) {
-    cb = cb || function() {};
-
-    AuthAPI.logout(this.user).then(function() {
+  logoutUser(cb = function(){}) {
+    AuthAPI.logout(this.user).then(() => {
       this.setUser(null, cb);
-    }.bind(this));
+    });
   }
 
 });
 
-module.exports = CurrentTrackStore;
+export default CurrentUserStore;

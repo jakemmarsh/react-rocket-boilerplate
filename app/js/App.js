@@ -1,25 +1,25 @@
 'use strict';
 
-var React              = require('react/addons');
-var Reflux             = require('reflux');
-var RouteHandler       = require('react-router').RouteHandler;
+import React              from 'react/addons';
+import {ListenerMixin}    from 'reflux';
+import {RouteHandler}     from 'react-router';
 
-var CurrentUserActions = require('./actions/CurrentUserActions');
-var CurrentUserStore   = require('./stores/CurrentUserStore');
-var Header             = require('./components/Header');
-var Footer             = require('./components/Footer');
+import CurrentUserActions from './actions/CurrentUserActions';
+import CurrentUserStore   from './stores/CurrentUserStore';
+import Header             from './components/Header';
+import Footer             from './components/Footer';
 
 var App = React.createClass({
 
-  mixins: [Reflux.ListenerMixin],
+  mixins: [ListenerMixin],
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       currentUser: {}
     };
   },
 
-  _onUserChange: function(err, user) {
+  _onUserChange(err, user) {
     if ( err ) {
       this.setState({ error: err });
     } else {
@@ -27,16 +27,16 @@ var App = React.createClass({
     }
   },
 
-  componentWillMount: function() {
+  componentWillMount() {
     console.log('About to mount App');
   },
 
-  componentDidMount: function() {
-    CurrentUserActions.checkLoginStatus(this._onUserChange);
+  componentDidMount() {
     this.listenTo(CurrentUserStore, this._onUserChange);
+    CurrentUserActions.checkLoginStatus();
   },
 
-  render: function() {
+  render() {
     return (
       <div>
 
@@ -54,4 +54,4 @@ var App = React.createClass({
 
 });
 
-module.exports = App;
+export default App;

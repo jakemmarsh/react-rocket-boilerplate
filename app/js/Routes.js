@@ -1,17 +1,14 @@
 'use strict';
 
-var React         = require('react/addons');
-var Router        = require('react-router');
-var Route         = Router.Route;
-var NotFoundRoute = Router.NotFoundRoute;
-var DefaultRoute  = Router.DefaultRoute;
+import React                                from 'react/addons';
+import {Route, NotFoundRoute, DefaultRoute} from 'react-router';
 
-var App           = require('./App');
-var HomePage      = require('./pages/HomePage');
-var SearchPage    = require('./pages/SearchPage');
-var NotFoundPage  = require('./pages/NotFoundPage');
+import App                                  from './App';
+import HomePage                             from './pages/HomePage';
+import SearchPage                           from './pages/SearchPage';
+import NotFoundPage                         from './pages/NotFoundPage';
 
-module.exports = (
+export default (
   <Route handler={App} path='/'>
 
     <DefaultRoute handler={HomePage} />
