@@ -29,9 +29,7 @@ function buildScript(file, watch) {
 
   if ( watch ) {
     bundler = watchify(bundler);
-    bundler.on('update', function() {
-      rebundle();
-    });
+    bundler.on('update', rebundle);
   }
 
   bundler.transform(babelify);
