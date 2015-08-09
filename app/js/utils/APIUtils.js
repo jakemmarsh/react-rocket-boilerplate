@@ -15,9 +15,9 @@ var APIUtils = {
     return new Promise((resolve, reject) => {
       request.get(this.root + path)
       .withCredentials()
-      .end(res => {
-        if ( !res.ok ) {
-          reject(this.normalizeResponse(res));
+      .end((err, res) => {
+        if ( err || !res.ok ) {
+          reject(this.normalizeResponse(err || res));
         } else {
           resolve(this.normalizeResponse(res));
         }
@@ -29,9 +29,10 @@ var APIUtils = {
     return new Promise((resolve, reject) => {
       request.post(this.root + path, body)
       .withCredentials()
-      .end(res => {
-        if ( !res.ok ) {
-          reject(this.normalizeResponse(res));
+      .end((err, res) => {
+        console.log(err, res);
+        if ( err || !res.ok ) {
+          reject(this.normalizeResponse(err || res));
         } else {
           resolve(this.normalizeResponse(res));
         }
@@ -43,9 +44,9 @@ var APIUtils = {
     return new Promise((resolve, reject) => {
       request.patch(this.root + path, body)
       .withCredentials()
-      .end(res => {
-        if ( !res.ok ) {
-          reject(this.normalizeResponse(res));
+      .end((err, res) => {
+        if ( err || !res.ok ) {
+          reject(this.normalizeResponse(err || res));
         } else {
           resolve(this.normalizeResponse(res));
         }
@@ -57,9 +58,9 @@ var APIUtils = {
     return new Promise((resolve, reject) => {
       request.put(this.root + path, body)
       .withCredentials()
-      .end(res => {
-        if ( !res.ok ) {
-          reject(this.normalizeResponse(res));
+      .end((err, res) => {
+        if ( err || !res.ok ) {
+          reject(this.normalizeResponse(err || res));
         } else {
           resolve(this.normalizeResponse(res));
         }
@@ -71,9 +72,9 @@ var APIUtils = {
     return new Promise((resolve, reject) => {
       request.del(this.root + path)
       .withCredentials()
-      .end(res => {
-        if ( !res.ok ) {
-          reject(this.normalizeResponse(res));
+      .end((err, res) => {
+        if ( err || !res.ok ) {
+          reject(this.normalizeResponse(err || res));
         } else {
           resolve(this.normalizeResponse(res));
         }
