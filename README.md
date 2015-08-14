@@ -7,7 +7,7 @@ A boilerplate using ReactJS (along with React Router and RefluxJS), SASS, Gulp, 
 
 ### Getting up and running
 
-1. Clone this repo from `https://github.com/jakemmarsh/react-rocket.git`
+1. Clone this repo from `https://github.com/jakemmarsh/react-rocket-boilerplate.git`
 2. Run `npm install` from the root directory
 3. Run `gulp dev` (may require installing Gulp globally `npm install gulp -g`)
 4. Your browser will automatically be opened and directed to the browser-sync proxy address
