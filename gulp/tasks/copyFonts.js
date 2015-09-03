@@ -6,6 +6,6 @@ var config = require('../config');
 gulp.task('copyFonts', function() {
 
   return gulp.src([config.sourceDir + 'fonts/**/*'])
-    .pipe(gulp.dest('build/fonts/'));
+    .pipe(gulp.dest(config.buildDir + 'fonts/'));
 
 });
