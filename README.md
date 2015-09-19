@@ -45,7 +45,6 @@ The ReactJS files are all located within `/app/js`, structured in the following 
   - Footer.js (Simple, static footer component rendered on all pages.)
   - Header.js (Simple, static header component rendered on all pages.)
 /mixins
-  - AuthenticatedRouteMixin.js (Example mixin that can be used to prevent users from accessing certain pages when not signed in.)
 /pages
   - HomePage.js (Example home page, serving as the default route.)
   - NotFoundPage.js (Displayed any time the user requests a non-existent route.)

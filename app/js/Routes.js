@@ -1,22 +1,25 @@
 'use strict';
 
-import React                                from 'react/addons';
-import {Route, NotFoundRoute, DefaultRoute} from 'react-router';
+import React                       from 'react/addons';
+import {Router, Route, IndexRoute} from 'react-router';
+import CreateBrowserHistory        from 'react-router/node_modules/history/lib/createBrowserHistory';
 
-import App                                  from './App';
-import HomePage                             from './pages/HomePage';
-import SearchPage                           from './pages/SearchPage';
-import NotFoundPage                         from './pages/NotFoundPage';
+import App                         from './App';
+import HomePage                    from './pages/HomePage';
+import SearchPage                  from './pages/SearchPage';
+import NotFoundPage                from './pages/NotFoundPage';
 
 export default (
-  <Route handler={App} path='/'>
+  <Router history={CreateBrowserHistory()}>
+    <Route path="/" component={App}>
 
-    <DefaultRoute handler={HomePage} />
+      <IndexRoute component={HomePage} />
 
-    <Route name='Home' path='/' handler={HomePage} />
-    <Route name='Search' path='/search' handler={SearchPage} />
+      <Route path="/" component={HomePage} />
+      <Route path="/search" component={SearchPage} />
 
-    <NotFoundRoute handler={NotFoundPage} />
+      <Route path="*" component={NotFoundPage} />
 
-  </Route>
+    </Route>
+  </Router>
 );
