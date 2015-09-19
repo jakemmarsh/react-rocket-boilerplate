@@ -2,7 +2,7 @@
 
 import React from 'react/addons';
 
-var Footer = React.createClass({
+const Footer = React.createClass({
 
   render() {
     return (

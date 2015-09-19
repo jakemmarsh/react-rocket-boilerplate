@@ -3,7 +3,7 @@
 import {camelizeKeys} from 'humps';
 import request        from 'superagent';
 
-var APIUtils = {
+const APIUtils = {
 
   root: '//localhost:3000/api/',
 

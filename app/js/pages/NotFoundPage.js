@@ -3,7 +3,7 @@
 import React         from 'react/addons';
 import DocumentTitle from 'react-document-title';
 
-var NotFoundPage = React.createClass({
+const NotFoundPage = React.createClass({
 
   propTypes: {
     currentUser: React.PropTypes.object.isRequired

@@ -2,7 +2,7 @@
 
 import React from 'react/addons';
 
-var Header = React.createClass({
+const Header = React.createClass({
 
   render() {
     return (

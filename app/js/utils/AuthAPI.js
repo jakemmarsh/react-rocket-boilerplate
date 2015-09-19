@@ -2,7 +2,7 @@
 
 import APIUtils from './APIUtils';
 
-var AuthAPI = {
+const AuthAPI = {
 
   checkLoginStatus() {
     return APIUtils.get('auth/check');

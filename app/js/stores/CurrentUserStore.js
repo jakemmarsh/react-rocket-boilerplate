@@ -5,7 +5,7 @@ import Reflux             from 'reflux';
 import CurrentUserActions from '../actions/CurrentUserActions';
 import AuthAPI            from '../utils/AuthAPI';
 
-var CurrentUserStore = Reflux.createStore({
+const CurrentUserStore = Reflux.createStore({
 
   init() {
     this.user = null;

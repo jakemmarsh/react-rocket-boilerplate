@@ -9,7 +9,7 @@ import CurrentUserStore   from './stores/CurrentUserStore';
 import Header             from './components/Header';
 import Footer             from './components/Footer';
 
-var App = React.createClass({
+const App = React.createClass({
 
   mixins: [ListenerMixin],
 

@@ -4,7 +4,7 @@ import React         from 'react/addons';
 import {Link}        from 'react-router';
 import DocumentTitle from 'react-document-title';
 
-var HomePage = React.createClass({
+const HomePage = React.createClass({
 
   propTypes: {
     currentUser: React.PropTypes.object.isRequired
