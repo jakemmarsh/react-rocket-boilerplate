@@ -2,7 +2,6 @@
 
 import React              from 'react/addons';
 import {ListenerMixin}    from 'reflux';
-import {RouteHandler}     from 'react-router';
 
 import CurrentUserActions from './actions/CurrentUserActions';
 import CurrentUserStore   from './stores/CurrentUserStore';
@@ -36,15 +35,21 @@ const App = React.createClass({
     CurrentUserActions.checkLoginStatus();
   },
 
+  renderChildren() {
+    return React.cloneElement(this.props.children, {
+      params: this.props.params,
+      query: this.props.query,
+      currentUser: this.state.currentUser
+    });
+  },
+
   render() {
     return (
       <div>
 
         <Header />
 
-        <RouteHandler params={this.props.params}
-                      query={this.props.query}
-                      currentUser={this.state.currentUser} />
+        {this.renderChildren()}
 
         <Footer />
 

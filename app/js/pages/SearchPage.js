@@ -20,7 +20,7 @@ const SearchPage = React.createClass({
           </div>
 
           <div>
-            <Link to="Home">Back to Home</Link>
+            <Link to="/">Back to Home</Link>
           </div>
 
         </section>
