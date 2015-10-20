@@ -1,20 +1,20 @@
 'use strict';
 
-var gulp         = require('gulp');
-var gulpif       = require('gulp-if');
-var gutil        = require('gulp-util');
-var source       = require('vinyl-source-stream');
-var streamify    = require('gulp-streamify');
-var sourcemaps   = require('gulp-sourcemaps');
-var rename       = require('gulp-rename');
-var watchify     = require('watchify');
-var browserify   = require('browserify');
-var babelify     = require('babelify');
-var uglify       = require('gulp-uglify');
-var browserSync  = require('browser-sync');
-var debowerify   = require('debowerify');
-var handleErrors = require('../util/handle-errors');
-var config       = require('../config');
+import gulp         from 'gulp';
+import gulpif       from 'gulp-if';
+import gutil        from 'gulp-util';
+import source       from 'vinyl-source-stream';
+import streamify    from 'gulp-streamify';
+import sourcemaps   from 'gulp-sourcemaps';
+import rename       from 'gulp-rename';
+import watchify     from 'watchify';
+import browserify   from 'browserify';
+import babelify     from 'babelify';
+import uglify       from 'gulp-uglify';
+import browserSync  from 'browser-sync';
+import debowerify   from 'debowerify';
+import handleErrors from '../util/handle-errors';
+import config       from '../config';
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file, watch) {
@@ -36,7 +36,7 @@ function buildScript(file, watch) {
   bundler.transform(debowerify);
 
   function rebundle() {
-    var stream = bundler.bundle();
+    let stream = bundler.bundle();
 
     gutil.log('Rebundle...');
 

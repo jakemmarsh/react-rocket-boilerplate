@@ -1,7 +1,7 @@
 'use strict';
 
-var gulp   = require('gulp');
-var config = require('../config');
+import gulp   from 'gulp';
+import config from '../config';
 
 gulp.task('copyFonts', function() {
 

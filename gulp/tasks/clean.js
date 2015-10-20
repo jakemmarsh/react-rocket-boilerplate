@@ -1,8 +1,8 @@
 'use strict';
 
-var config = require('../config');
-var gulp   = require('gulp');
-var del    = require('del');
+import gulp   from 'gulp';
+import del    from 'del';
+import config from '../config';
 
 gulp.task('clean', function(cb) {
 
