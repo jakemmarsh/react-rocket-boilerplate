@@ -1,0 +1,7 @@
+{
+  "globals": {
+    "sinon": true,
+    "sandbox": true,
+    "Should": true
+  }
+}
