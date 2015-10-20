@@ -1,0 +1,33 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true,
+    "mocha": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "eol-last": 0,
+    "no-debugger": 1,
+    "no-mixed-requires": 0,
+    "no-underscore-dangle": 0,
+    "no-multi-spaces": 0,
+    "no-trailing-spaces": 0,
+    "no-extra-boolean-cast": 0,
+    "no-unused-vars": 1,
+    "new-cap": 0,
+    "camelcase": 1,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 0,
+    "react/prop-types": 2
+  }
+}
