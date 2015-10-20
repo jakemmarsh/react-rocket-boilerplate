@@ -1,26 +1,29 @@
 'use strict';
 
-module.exports = {
+const config = {
 
-  'serverport': 3000,
+  browserPort: 3000,
+  UIPort: 3001,
 
-  'scripts': {
-    'src': './app/js/**/*.js',
-    'dest': './build/js/'
+  scripts: {
+    src: './app/js/**/*.js',
+    dest: './build/js/'
   },
 
-  'images': {
-    'src': './app/images/**/*.{jpeg,jpg,png}',
-    'dest': './build/images/'
+  images: {
+    src: './app/images/**/*.{jpeg,jpg,png}',
+    dest: './build/images/'
   },
 
-  'styles': {
-    'src': './app/styles/**/*.scss',
-    'dest': './build/css/'
+  styles: {
+    src: './app/styles/**/*.scss',
+    dest: './build/css/'
   },
 
-  'sourceDir': './app/',
+  sourceDir: './app/',
 
-  'buildDir': './build/'
+  buildDir: './build/'
 
 };
+
+export default config;
