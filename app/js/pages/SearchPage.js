@@ -27,9 +27,9 @@ const SearchPage = React.createClass({
           <div>
             <h1>Search</h1>
 
-            <h2>Your query: {this.state.query}</h2>
+            <h2>Your query: <span ref="queryDisplay">{this.state.query}</span></h2>
 
-            <input type="text" valueLink={this.linkState('query')} />
+            <input type="text" valueLink={this.linkState('query')} ref="searchInput" />
           </div>
 
           <div>
