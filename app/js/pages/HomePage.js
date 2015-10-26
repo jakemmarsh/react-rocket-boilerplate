@@ -1,13 +1,13 @@
 'use strict';
 
-import React         from 'react/addons';
+import React         from 'react';
 import {Link}        from 'react-router';
 import DocumentTitle from 'react-document-title';
 
 const HomePage = React.createClass({
 
   propTypes: {
-    currentUser: React.PropTypes.object.isRequired
+    currentUser: React.PropTypes.object
   },
 
   render() {
