@@ -15,7 +15,7 @@ gulp.task('test', () => {
     let singleFile = argv.f || argv.file;
 
     // Allow omission of directory and/or extension
-    if ( singleFile.indexOf('__tests__/') === -1 ) { singleFile = '__tests__/' + singleFile; }
+    if ( singleFile.indexOf('__tests__/') === -1 ) { singleFile = `__tests__/${singleFile}`; }
     if ( singleFile.indexOf('.spec.js') === -1 ) { singleFile += '.spec.js'; }
 
     // Include top-level helper even when running specific tests
