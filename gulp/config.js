@@ -6,21 +6,21 @@ const config = {
   UIPort: 3001,
 
   scripts: {
-    src: './app/js/**/*.js',
-    dest: './build/js/'
+    src: './src/scripts/**/*.js',
+    dest: './build/scripts/'
   },
 
   images: {
-    src: './app/images/**/*.{jpeg,jpg,png}',
+    src: './src/images/**/*.{jpeg,jpg,png}',
     dest: './build/images/'
   },
 
   styles: {
-    src: './app/styles/**/*.scss',
-    dest: './build/css/'
+    src: './src/styles/**/*.scss',
+    dest: './build/styles/'
   },
 
-  sourceDir: './app/',
+  sourceDir: './src/',
 
   buildDir: './build/'
 

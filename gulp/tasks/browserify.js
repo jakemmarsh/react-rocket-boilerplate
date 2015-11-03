@@ -20,7 +20,7 @@ import config       from '../config';
 function buildScript(file, watch) {
 
   var bundler = browserify({
-    entries: [config.sourceDir + 'js/' + file],
+    entries: [config.sourceDir + 'scripts/' + file],
     debug: !global.isProd,
     cache: {},
     packageCache: {},
@@ -44,7 +44,7 @@ function buildScript(file, watch) {
     .pipe(source(file))
     .pipe(gulpif(global.isProd, streamify(uglify())))
     .pipe(streamify(rename({
-      basename: 'main'
+      basename: 'app'
     })))
     .pipe(gulpif(!global.isProd, sourcemaps.write('./')))
     .pipe(gulp.dest(config.scripts.dest))

@@ -12,7 +12,7 @@ const HomePage = React.createClass({
 
   render() {
     return (
-      <DocumentTitle title="Home">
+      <DocumentTitle title="ReactJS Starter Kit">
         <section className="home-page">
 
           <div>
