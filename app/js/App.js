@@ -27,7 +27,7 @@ const App = React.createClass({
     };
   },
 
-  _onUserChange(err, user) {
+  onUserChange(err, user) {
     if ( err ) {
       this.setState({ error: err });
     } else {

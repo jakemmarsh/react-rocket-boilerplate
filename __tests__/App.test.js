@@ -22,7 +22,7 @@ describe('App', function() {
     );
   });
 
-  it('#_onUserChange should set the error state if an error is received', function() {
+  it('#onUserChange should set the error state if an error is received', function() {
     const err = { message: 'Test error message.' };
     const app = TestUtils.renderIntoDocument(
       <App params={{}} query={{}}>
@@ -30,11 +30,11 @@ describe('App', function() {
       </App>
     );
 
-    app._onUserChange(err, null);
+    app.onUserChange(err, null);
     app.state.error.should.eql(err);
   });
 
-  it('#_onUserChange should set the user state and clear error if a new user is received', function() {
+  it('#onUserChange should set the user state and clear error if a new user is received', function() {
     const user = TestHelpers.fixtures.user;
     const app = TestUtils.renderIntoDocument(
       <App params={{}} query={{}}>
@@ -42,7 +42,7 @@ describe('App', function() {
       </App>
     );
 
-    app._onUserChange(null, user);
+    app.onUserChange(null, user);
     app.state.currentUser.should.eql(user);
     Should(app.state.error).be.null();
   });
