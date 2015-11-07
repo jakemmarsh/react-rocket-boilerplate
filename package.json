@@ -1,6 +1,6 @@
 {
   "name": "react-rocket-boilerplate",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Jake Marsh <jakemmarsh@gmail.com>",
   "description": "Boilerplate using React, Browserify, SASS, and Gulp.",
   "repository": {
@@ -47,7 +47,6 @@
     "lodash": "^3.10.0",
     "mocha": "^2.3.3",
     "react": "^0.14.x",
-    "react-addons-linked-state-mixin": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
     "react-document-title": "^1.0.2",
     "react-dom": "^0.14.0",

@@ -1,48 +1,50 @@
 'use strict';
 
 import React              from 'react';
-import {ListenerMixin}    from 'reflux';
 
 import CurrentUserActions from './actions/CurrentUserActions';
 import CurrentUserStore   from './stores/CurrentUserStore';
 import Header             from './components/Header';
 import Footer             from './components/Footer';
 
-const App = React.createClass({
+const propTypes = {
+  params: React.PropTypes.object,
+  query: React.PropTypes.object,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.object
+  ])
+};
 
-  mixins: [ListenerMixin],
+class App extends React.Component {
 
-  propTypes: {
-    params: React.PropTypes.object,
-    query: React.PropTypes.object,
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.object
-    ])
-  },
-
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       currentUser: {}
     };
-  },
+  }
 
-  _onUserChange(err, user) {
+  onUserChange(err, user) {
     if ( err ) {
       this.setState({ error: err });
     } else {
       this.setState({ currentUser: user || {}, error: null });
     }
-  },
+  }
 
   componentWillMount() {
     console.log('About to mount App');
-  },
+  }
 
   componentDidMount() {
-    this.listenTo(CurrentUserStore, this._onUserChange);
+    this.unsubscribe = CurrentUserStore.listen(this.onUserChange);
     CurrentUserActions.checkLoginStatus();
-  },
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
 
   renderChildren() {
     return React.cloneElement(this.props.children, {
@@ -50,7 +52,7 @@ const App = React.createClass({
       query: this.props.query,
       currentUser: this.state.currentUser
     });
-  },
+  }
 
   render() {
     return (
@@ -66,6 +68,8 @@ const App = React.createClass({
     );
   }
 
-});
+}
+
+App.propTypes = propTypes;
 
 export default App;

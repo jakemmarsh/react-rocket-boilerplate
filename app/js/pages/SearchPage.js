@@ -1,23 +1,27 @@
 'use strict';
 
 import React            from 'react';
-import LinkedStateMixin from 'react-addons-linked-state-mixin';
 import {Link}           from 'react-router';
 import DocumentTitle    from 'react-document-title';
 
-const SearchPage = React.createClass({
+const propTypes = {
+  currentUser: React.PropTypes.object
+};
 
-  mixins: [LinkedStateMixin],
+class SearchPage extends React.Component {
 
-  propTypes: {
-    currentUser: React.PropTypes.object
-  },
-
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       query: ''
     };
-  },
+  }
+
+  handleQueryChange(evt) {
+    this.setState({
+      query: evt.target.value
+    });
+  }
 
   render() {
     return (
@@ -29,7 +33,7 @@ const SearchPage = React.createClass({
 
             <h2>Your query: <span ref="queryDisplay">{this.state.query}</span></h2>
 
-            <input type="text" valueLink={this.linkState('query')} ref="searchInput" />
+            <input type="text" onChange={this.handleQueryChange.bind(this)} ref="searchInput" />
           </div>
 
           <div>
@@ -41,6 +45,8 @@ const SearchPage = React.createClass({
     );
   }
 
-});
+}
+
+SearchPage.propTypes = propTypes;
 
 export default SearchPage;
