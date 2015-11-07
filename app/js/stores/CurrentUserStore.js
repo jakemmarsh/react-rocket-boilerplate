@@ -16,42 +16,40 @@ const CurrentUserStore = Reflux.createStore({
     this.listenTo(CurrentUserActions.logout, this.logoutUser);
   },
 
-  setUser(user, cb = function(){}) {
+  setUser(user) {
     this.user = user;
-    cb(null, this.user);
     this.trigger(null, this.user);
   },
 
-  throwError(err, cb) {
-    cb(err);
+  throwError(err) {
     this.trigger(err);
   },
 
-  checkLoginStatus(cb = function(){}) {
+  checkLoginStatus() {
     if ( this.user ) {
-      this.setUser(this.user, cb);
+      this.setUser(this.user);
     } else {
       AuthAPI.checkLoginStatus().then(user => {
         this.hasBeenChecked = true;
-        this.setUser(user, cb);
+        this.setUser(user);
       }).catch(err => {
         this.hasBeenChecked = true;
-        this.throwError(err, cb);
+        this.throwError(err);
       });
     }
   },
 
-  loginUser(user, cb = function(){}) {
+  loginUser(user) {
     AuthAPI.login(user).then(user => {
-      this.setUser(user, cb);
+      this.setUser(user);
     }).catch(err => {
-      this.throwError(err, cb);
+      this.throwError(err);
     });
   },
 
-  logoutUser(cb = function(){}) {
+  logoutUser() {
     AuthAPI.logout(this.user).then(() => {
-      this.setUser(null, cb);
+      this.setUser(null);
     });
   }
 
