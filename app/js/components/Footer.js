@@ -2,7 +2,11 @@
 
 import React from 'react';
 
-const Footer = React.createClass({
+class Footer extends React.Component{
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -14,6 +18,6 @@ const Footer = React.createClass({
     );
   }
 
-});
+}
 
 export default Footer;

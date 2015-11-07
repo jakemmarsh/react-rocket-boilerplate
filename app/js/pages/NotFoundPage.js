@@ -3,11 +3,15 @@
 import React         from 'react';
 import DocumentTitle from 'react-document-title';
 
-const NotFoundPage = React.createClass({
+const propTypes = {
+  currentUser: React.PropTypes.object
+};
 
-  propTypes: {
-    currentUser: React.PropTypes.object
-  },
+class NotFoundPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -21,6 +25,8 @@ const NotFoundPage = React.createClass({
     );
   }
 
-});
+}
+
+NotFoundPage.propTypes = propTypes;
 
 export default NotFoundPage;

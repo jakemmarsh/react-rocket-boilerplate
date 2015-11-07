@@ -4,11 +4,15 @@ import React         from 'react';
 import {Link}        from 'react-router';
 import DocumentTitle from 'react-document-title';
 
-const HomePage = React.createClass({
+const propTypes = {
+  currentUser: React.PropTypes.object
+};
 
-  propTypes: {
-    currentUser: React.PropTypes.object
-  },
+class HomePage extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -28,6 +32,8 @@ const HomePage = React.createClass({
     );
   }
 
-});
+}
+
+HomePage.propTypes = propTypes;
 
 export default HomePage;
