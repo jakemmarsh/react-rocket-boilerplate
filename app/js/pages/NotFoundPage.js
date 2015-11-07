@@ -1,12 +1,12 @@
 'use strict';
 
-import React         from 'react/addons';
+import React         from 'react';
 import DocumentTitle from 'react-document-title';
 
 const NotFoundPage = React.createClass({
 
   propTypes: {
-    currentUser: React.PropTypes.object.isRequired
+    currentUser: React.PropTypes.object
   },
 
   render() {

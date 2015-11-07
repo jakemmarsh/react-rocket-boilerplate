@@ -11,7 +11,7 @@ const config = {
   },
 
   images: {
-    src: './app/images/**/*.{jpeg,jpg,png}',
+    src: './app/images/**/*.{jpeg,jpg,png,gif}',
     dest: './build/images/'
   },
 
@@ -22,7 +22,9 @@ const config = {
 
   sourceDir: './app/',
 
-  buildDir: './build/'
+  buildDir: './build/',
+
+  testFiles: './__tests__/**/*.{js,jsx}',
 
 };
 

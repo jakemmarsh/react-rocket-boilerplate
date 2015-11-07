@@ -24,5 +24,6 @@ bower_components
 
 # Build files
 build
+__coverage__
 
 .elasticbeanstalk/

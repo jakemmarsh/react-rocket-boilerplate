@@ -1,6 +1,6 @@
 'use strict';
 
-import React              from 'react/addons';
+import React              from 'react';
 import {ListenerMixin}    from 'reflux';
 
 import CurrentUserActions from './actions/CurrentUserActions';
@@ -11,6 +11,15 @@ import Footer             from './components/Footer';
 const App = React.createClass({
 
   mixins: [ListenerMixin],
+
+  propTypes: {
+    params: React.PropTypes.object,
+    query: React.PropTypes.object,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.object
+    ])
+  },
 
   getInitialState() {
     return {
