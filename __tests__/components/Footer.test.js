@@ -7,10 +7,12 @@ import Footer    from '../../app/js/components/Footer';
 
 describe('Component: Footer', function() {
 
-  it('#getTrackDuration should return the correct duration for the current track', function() {
+  it('should render properly', function() {
     const footer = TestUtils.renderIntoDocument(
       <Footer />
     );
+
+    TestUtils.findRenderedDOMComponentWithTag.bind(null, footer, 'footer').should.not.throw();
   });
 
 });

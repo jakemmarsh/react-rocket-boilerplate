@@ -59,6 +59,7 @@
     "superagent": "^1.2.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.x",
+    "when": "^3.7.4",
     "yargs": "^3.27.0"
   }
 }
