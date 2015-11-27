@@ -13,16 +13,7 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: config.buildDir,
-      middleware: function(req, res, next) {
-        let fileHrefArray = url.parse(req.url).href.split('.');
-        let fileExtension = fileHrefArray[fileHrefArray.length - 1];
-
-        if ( ASSET_EXTENSIONS.indexOf(fileExtension) === -1 ) {
-          req.url = '/' + DEFAULT_FILE;
-        }
-
-        return next();
-      }
+      index: DEFAULT_FILE
     },
     port: config.browserPort,
     ui: {
