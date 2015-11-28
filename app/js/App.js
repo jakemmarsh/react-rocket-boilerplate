@@ -20,6 +20,9 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.onUserChange = this.onUserChange.bind(this);
+
     this.state = {
       currentUser: {}
     };

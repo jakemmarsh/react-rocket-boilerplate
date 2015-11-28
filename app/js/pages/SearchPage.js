@@ -12,6 +12,9 @@ class SearchPage extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.handleQueryChange = this.handleQueryChange.bind(this);
+
     this.state = {
       query: ''
     };
@@ -33,7 +36,7 @@ class SearchPage extends React.Component {
 
             <h2>Your query: <span ref="queryDisplay">{this.state.query}</span></h2>
 
-            <input type="text" onChange={this.handleQueryChange.bind(this)} ref="searchInput" />
+            <input type="text" onChange={this.handleQueryChange} ref="searchInput" />
           </div>
 
           <div>
