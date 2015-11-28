@@ -1,6 +1,6 @@
 {
   "name": "react-rocket-boilerplate",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Jake Marsh <jakemmarsh@gmail.com>",
   "description": "Boilerplate using React, Browserify, SASS, and Gulp.",
   "repository": {
