@@ -15,7 +15,7 @@ gulp.task('browserSync', function() {
       baseDir: config.buildDir,
       middleware: function(req, res, next) {
         let fileHrefArray = url.parse(req.url).href.split('.');
-        let fileExtension = fileHrefArray[fileHrefArray.length - 1];
+        let fileExtension = fileHrefArray[fileHrefArray.length - 1].split("?")[0].split("#")[0];
 
         if ( ASSET_EXTENSIONS.indexOf(fileExtension) === -1 ) {
           req.url = '/' + DEFAULT_FILE;
