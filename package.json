@@ -62,5 +62,9 @@
     "watchify": "^3.2.x",
     "when": "^3.7.4",
     "yargs": "^3.27.0"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/gulp lint",
+    "test": "./node_modules/.bin/gulp test"
   }
 }
