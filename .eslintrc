@@ -9,9 +9,7 @@
   },
   "env": {
     "browser": true,
-    "node": true,
-    "jasmine": true,
-    "mocha": true
+    "node": true
   },
   "rules": {
     "quotes": [2, "single"],
