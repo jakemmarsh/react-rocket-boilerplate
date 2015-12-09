@@ -1,5 +1,7 @@
 react-rocket
 ============
+[![Build Status](https://travis-ci.org/jakemmarsh/react-rocket-boilerplate.svg)](https://travis-ci.org/jakemmarsh/react-rocket-boilerplate) [![devDependency Status](https://david-dm.org/jakemmarsh/react-rocket-boilerplate/dev-status.svg)](https://david-dm.org/jakemmarsh/react-rocket-boilerplate#info=devDependencies)
+
 
 A boilerplate using ReactJS (along with React Router and RefluxJS), SASS, Gulp, and Browserify that also utilizes Gulp best practices from [this resource](https://github.com/greypants/gulp-starter).
 

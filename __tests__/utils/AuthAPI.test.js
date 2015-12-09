@@ -2,7 +2,7 @@
 
 import APIUtils    from '../../app/js/utils/APIUtils';
 import AuthAPI     from '../../app/js/utils/AuthAPI';
-import TestHelpers from '../../utils/TestHelpers';
+import TestHelpers from '../../utils/testHelpers';
 
 describe('Util: AuthAPI', function() {
 

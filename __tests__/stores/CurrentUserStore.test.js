@@ -2,7 +2,7 @@
 
 import when               from 'when';
 
-import TestHelpers        from '../../utils/TestHelpers';
+import TestHelpers        from '../../utils/testHelpers';
 import CurrentUserStore   from '../../app/js/stores/CurrentUserStore';
 import CurrentUserActions from '../../app/js/actions/CurrentUserActions';
 import AuthAPI            from '../../app/js/utils/AuthAPI';
