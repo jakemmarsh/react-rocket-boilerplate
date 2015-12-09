@@ -1,6 +1,6 @@
 {
   "name": "react-rocket-boilerplate",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": "Jake Marsh <jakemmarsh@gmail.com>",
   "description": "Boilerplate using React, Browserify, SASS, and Gulp.",
   "repository": {
@@ -31,6 +31,7 @@
     "eslint-plugin-react": "^3.6.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-eslint": "^1.1.1",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-jsx-coverage": "^0.3.5",
@@ -42,7 +43,7 @@
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "history": "^1.12.5",
+    "history": "1.13.0",
     "humps": "^1.0.0",
     "istanbul": "^0.4.0",
     "jsdom": "3.1.2",
@@ -62,5 +63,9 @@
     "watchify": "^3.2.x",
     "when": "^3.7.4",
     "yargs": "^3.27.0"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/gulp lint",
+    "test": "./node_modules/.bin/gulp test"
   }
 }

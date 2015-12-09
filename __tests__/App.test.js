@@ -7,7 +7,7 @@ import App                from '../app/js/App';
 import CurrentUserStore   from '../app/js/stores/CurrentUserStore';
 import CurrentUserActions from '../app/js/actions/CurrentUserActions';
 import {ListenerMixin}    from 'reflux';
-import TestHelpers        from '../utils/TestHelpers';
+import TestHelpers        from '../utils/testHelpers';
 
 describe('App', function() {
 
