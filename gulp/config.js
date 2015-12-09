@@ -26,6 +26,20 @@ const config = {
 
   testFiles: './__tests__/**/*.{js,jsx}',
 
+  assetExtensions: [
+    'js',
+    'css',
+    'png',
+    'jpe?g',
+    'gif',
+    'svg',
+    'eot',
+    'otf',
+    'ttc',
+    'ttf',
+    'woff2?'
+  ]
+
 };
 
 export default config;
