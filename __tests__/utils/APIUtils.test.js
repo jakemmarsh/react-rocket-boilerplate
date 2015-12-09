@@ -10,7 +10,7 @@ describe('Util: APIUtils', function() {
     let testResponse = {
       status: 200,
       body: {
-        camel_case: 'test',
+        camel_case: 'test', //eslint-disable-line camelcase
         PascalCase: 'test',
         camelCase: 'test'
       }
