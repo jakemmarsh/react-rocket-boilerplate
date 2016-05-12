@@ -36,13 +36,13 @@ Along with many Gulp libraries (these can be seen in either `package.json`, or a
 
 1. If you haven't already, follow steps 1 & 2 above
 2. If you haven't already run `gulp dev` or `npm run build` at least once, run `npm run build`
-3. Run all tests in the `__tests__/` directory with the `gulp test` command
+3. Run all tests in the `tests/` directory with the `gulp test` command
   * A single file can be run by specifing an `-f` flag: `gulp test -f <PATH_TO_TEST_FILE>`
-    * In the `PATH_TO_TEST_FILE`, it is possible to omit the `__tests__/` prefix, as well as the `.test.js` suffix. They will be automatically added if not detected.
+    * In the `PATH_TO_TEST_FILE`, it is possible to omit the `tests/` prefix, as well as the `.test.js` suffix. They will be automatically added if not detected.
 
 ##### Code coverage
 
-When running tests, code coverage will be automatically calculated and output to an HTML file using the [Istanbul](https://github.com/gotwarlost/istanbul) library. These files can be seen in the generated `__coverage__/` directory.
+When running tests, code coverage will be automatically calculated and output to an HTML file using the [Istanbul](https://github.com/gotwarlost/istanbul) library. These files can be seen in the generated `coverage/` directory.
 
 ---
 

@@ -15,11 +15,11 @@ gulp.task('test', () => {
     let singleFile = argv.f || argv.file;
 
     // Allow omission of directory and/or extension
-    if ( singleFile.indexOf('__tests__/') === -1 ) { singleFile = `__tests__/${singleFile}`; }
+    if ( singleFile.indexOf('tests/') === -1 ) { singleFile = `tests/${singleFile}`; }
     if ( singleFile.indexOf('.test.js') === -1 ) { singleFile += '.test.js'; }
 
     // Include top-level helper even when running specific tests
-    files = ['__tests__/helper.js', singleFile];
+    files = ['tests/helper.js', singleFile];
   } else {
     // Default to all test files
     files = [config.testFiles];
@@ -27,24 +27,25 @@ gulp.task('test', () => {
 
   // Ensure that all window/DOM related properties
   // are available to all tests
-  global.document = jsdom('<!DOCTYPE html><html><body></body></html>');
-  global.window = document.parentWindow;
-  global.location = { href: '' };
-  global.navigator = {};
-  global.navigator.userAgent = 'jsdom';
-  global.navigator.appVersion = '';
+  global.document = jsdom('<!DOCTYPE html><html><body></body></html>', {
+    url: 'http://localhost'
+  });
+  global.window = document.defaultView;
+  global.navigator = window.navigator;
+  global.KeyboardEvent = window.KeyboardEvent;
 
-  // Ensure that 'should' and 'sinon' library methods will be
+  // Ensure that 'sinon' and 'chai' library methods will be
   // available to all tests
-  global.Should = require('should');
   global.sinon = require('sinon');
+  global.assert = require('chai').assert;
+  require('sinon-as-promised');
 
   return (gjc.createTask({
     src: files,
 
     istanbul: {
       coverageVariable: '__MY_TEST_COVERAGE__',
-      exclude: /node_modules|__tests__|build|gulp|testHelpers/
+      exclude: /node_modules|tests|build|gulp|testHelpers/
     },
 
     transpile: {
