@@ -12,7 +12,7 @@ gulp.task('test', () => {
 
   // Allow specification of a single test file
   if ( argv.f || argv.file ) {
-    const singleFile = argv.f || argv.file;
+    let singleFile = argv.f || argv.file;
 
     // Allow omission of directory and/or extension
     if ( singleFile.indexOf('tests/') === -1 ) { singleFile = `tests/${singleFile}`; }
