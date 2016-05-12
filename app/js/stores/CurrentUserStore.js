@@ -29,7 +29,7 @@ const CurrentUserStore = Reflux.createStore({
     if ( this.user ) {
       this.setUser(this.user);
     } else {
-      AuthAPI.checkLoginStatus().then(user => {
+      AuthAPI.checkLoginStatus().then((user) => {
         this.hasBeenChecked = true;
         this.setUser(user);
       }).catch(err => {
@@ -40,7 +40,7 @@ const CurrentUserStore = Reflux.createStore({
   },
 
   loginUser(user) {
-    AuthAPI.login(user).then(user => {
+    AuthAPI.login(user).then((user) => {
       this.setUser(user);
     }).catch(err => {
       this.throwError(err);
