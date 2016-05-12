@@ -36,6 +36,7 @@ gulp.task('test', () => {
 
   // Ensure that 'sinon' and 'chai' library methods will be
   // available to all tests
+  global.sinon = require('sinon');
   global.assert = require('chai').assert;
 
   return (gjc.createTask({
