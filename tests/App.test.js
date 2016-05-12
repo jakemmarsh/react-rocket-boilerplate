@@ -3,57 +3,62 @@
 import React              from 'react';
 import TestUtils          from 'react-addons-test-utils';
 
+import fixtures           from '../utils/fixtures';
+import copyObject         from '../utils/copyObject';
 import App                from '../app/js/App';
 import CurrentUserStore   from '../app/js/stores/CurrentUserStore';
 import CurrentUserActions from '../app/js/actions/CurrentUserActions';
-import {ListenerMixin}    from 'reflux';
-import TestHelpers        from '../utils/testHelpers';
 
 describe('App', function() {
 
-  it('#componentDidMount should listen to the user store and check login status', function() {
-    sandbox.mock(ListenerMixin).expects('listenTo').withArgs(CurrentUserStore, App._onUserChange).once();
-    sandbox.mock(CurrentUserActions).expects('checkLoginStatus').once();
+  const USER = copyObject(fixtures.user);
+  let rendered;
+  let props;
 
-    TestUtils.renderIntoDocument(
-      <App params={{}} query={{}}>
-        <div />
+  function renderComponent() {
+    rendered = TestUtils.renderIntoDocument(
+      <App {...props}>
+        <div className="test-child" />
       </App>
     );
+  }
+
+  beforeEach(function() {
+    props = {
+      params: {},
+      query: {}
+    };
+
+    renderComponent();
+  });
+
+  it('#componentDidMount should listen to the user store and check login status', function() {
+    sandbox.stub(CurrentUserStore, 'listen');
+    sandbox.stub(CurrentUserActions, 'checkLoginStatus');
+
+    rendered.componentDidMount();
+
+    sinon.assert.calledOnce(CurrentUserStore.listen);
+    sinon.assert.calledWith(CurrentUserStore.listen, rendered.onUserChange);
+    sinon.assert.calledOnce(CurrentUserActions.checkLoginStatus);
   });
 
   it('#onUserChange should set the error state if an error is received', function() {
     const err = { message: 'Test error message.' };
-    const app = TestUtils.renderIntoDocument(
-      <App params={{}} query={{}}>
-        <div />
-      </App>
-    );
 
-    app.onUserChange(err, null);
-    app.state.error.should.eql(err);
+    rendered.onUserChange(err, null);
+
+    assert.deepEqual(rendered.state.error, err);
   });
 
   it('#onUserChange should set the user state and clear error if a new user is received', function() {
-    const user = TestHelpers.fixtures.user;
-    const app = TestUtils.renderIntoDocument(
-      <App params={{}} query={{}}>
-        <div />
-      </App>
-    );
+    rendered.onUserChange(null, USER);
 
-    app.onUserChange(null, user);
-    app.state.currentUser.should.eql(user);
-    Should(app.state.error).be.null();
+    assert.strictEqual(rendered.state.currentUser, USER);
+    assert.isNull(rendered.state.error);
   });
 
   it('#renderChildren should return all the cloned children', function() {
-    const app = TestUtils.renderIntoDocument(
-      <App params={{}} query={{}}>
-        <div className="test-child" />
-      </App>
-    );
-
-    TestUtils.findRenderedDOMComponentWithClass(app, 'test-child').should.not.throw();
+    assert.doesNotThrow(TestUtils.findRenderedDOMComponentWithClass.bind(null, rendered, 'test-child'));
   });
 });

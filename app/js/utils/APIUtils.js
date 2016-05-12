@@ -1,14 +1,15 @@
 'use strict';
 
-import {camelizeKeys} from 'humps';
-import request        from 'superagent';
+import request from 'superagent';
+import {camel} from 'change-case';
+import helpers from './Helpers';
 
 const APIUtils = {
 
   root: '//localhost:3000/api/',
 
   normalizeResponse(response) {
-    return camelizeKeys(response.body);
+    return helpers.processObjectKeys(response, key => { return camel(key); });
   },
 
   get(path) {

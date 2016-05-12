@@ -1,41 +1,45 @@
 'use strict';
 
-import APIUtils    from '../../app/js/utils/APIUtils';
-import AuthAPI     from '../../app/js/utils/AuthAPI';
-import TestHelpers from '../../utils/testHelpers';
+import fixtures   from '../../utils/fixtures';
+import copyObject from '../../utils/copyObject';
+import APIUtils   from '../../app/js/utils/APIUtils';
+import AuthAPI    from '../../app/js/utils/AuthAPI';
 
 describe('Util: AuthAPI', function() {
 
-  const user = TestHelpers.fixtures.user;
+  const USER = copyObject(fixtures.user);
 
-  it('should make a request to check a user\'s login status', function(done) {
-    let path = 'auth/check';
+  it('#checkLoginStatus should make a request to check a user\'s login status', function() {
+    const path = 'auth/check';
 
-    sandbox.mock(APIUtils).expects('get').withArgs(path);
+    sandbox.stub(APIUtils, 'get');
 
     AuthAPI.checkLoginStatus();
 
-    done();
+    sinon.assert.calledOnce(APIUtils.get);
+    sinon.assert.calledWith(APIUtils.get, path);
   });
 
-  it('should make a request to login a user', function(done) {
-    let path = 'auth/login';
+  it('#login should make a request to login a user', function() {
+    const path = 'auth/login';
 
-    sandbox.mock(APIUtils).expects('post').withArgs(path, user);
+    sandbox.stub(APIUtils, 'post');
 
-    AuthAPI.login(user);
+    AuthAPI.login(USER);
 
-    done();
+    sinon.assert.calledOnce(APIUtils.post);
+    sinon.assert.calledWith(APIUtils.post, path, USER);
   });
 
-  it('should make a request to log a user out', function(done) {
-    let path = 'auth/logout';
+  it('#logout should make a request to log a user out', function() {
+    const path = 'auth/logout';
 
-    sandbox.mock(APIUtils).expects('post').withArgs(path);
+    sandbox.stub(APIUtils, 'post');
 
     AuthAPI.logout();
 
-    done();
+    sinon.assert.calledOnce(APIUtils.post);
+    sinon.assert.calledWith(APIUtils.post, path);
   });
 
 });

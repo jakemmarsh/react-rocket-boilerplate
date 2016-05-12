@@ -1,5 +1,6 @@
 'use strict';
 
+import React      from 'react';
 import TestUtils  from 'react-addons-test-utils';
 
 import SearchPage from '../../app/js/pages/SearchPage';
@@ -21,7 +22,7 @@ describe('Page: Search', function() {
   });
 
   it('should render properly', function() {
-    TestUtils.findRenderedDOMComponentWithClass.bind(null, rendered, 'search-page').should.not.throw();
+    assert.doesNotThrow(TestUtils.findRenderedDOMComponentWithClass.bind(null, rendered, 'search-page'));
   });
 
   it('should update state on input box change', function() {
@@ -31,7 +32,7 @@ describe('Page: Search', function() {
     input.value = newValue;
     TestUtils.Simulate.change(input);
 
-    rendered.state.query.should.eql(newValue);
+    assert.strictEqual(rendered.state.query, newValue);
   });
 
   it('should render the updated state in the related span', function() {

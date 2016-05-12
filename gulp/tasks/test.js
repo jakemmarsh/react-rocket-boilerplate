@@ -27,17 +27,18 @@ gulp.task('test', () => {
 
   // Ensure that all window/DOM related properties
   // are available to all tests
-  global.document = jsdom('<!DOCTYPE html><html><body></body></html>');
-  global.window = document.parentWindow;
-  global.location = { href: '' };
-  global.navigator = {};
-  global.navigator.userAgent = 'jsdom';
-  global.navigator.appVersion = '';
+  global.document = jsdom('<!DOCTYPE html><html><body></body></html>', {
+    url: 'http://localhost'
+  });
+  global.window = document.defaultView;
+  global.navigator = window.navigator;
+  global.KeyboardEvent = window.KeyboardEvent;
 
   // Ensure that 'sinon' and 'chai' library methods will be
   // available to all tests
   global.sinon = require('sinon');
   global.assert = require('chai').assert;
+  require('sinon-as-promised');
 
   return (gjc.createTask({
     src: files,

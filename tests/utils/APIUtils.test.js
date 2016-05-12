@@ -1,72 +1,83 @@
 'use strict';
 
-import request        from 'superagent';
-import {camelizeKeys} from 'humps';
-import APIUtils       from '../../app/js/utils/APIUtils';
+import request  from 'superagent';
+import APIUtils from '../../app/js/utils/APIUtils';
 
 describe('Util: APIUtils', function() {
 
-  it('should normalize the body of a response object with varying keys', function() {
-    let testResponse = {
-      status: 200,
-      body: {
-        camel_case: 'test', //eslint-disable-line camelcase
-        PascalCase: 'test',
-        camelCase: 'test'
-      }
+  it('#normalizeResponse should normalize the body of a response object with varying keys', function() {
+    const beforeObj = {
+        camel_case: 'yes', //eslint-disable-line camelcase
+        WhatIsThisCase: 'yes'
     };
+    const afterObj = { camelCase: 'yes', whatIsThisCase: 'yes' };
 
-    APIUtils.normalizeResponse(testResponse).should.eql(camelizeKeys(testResponse.body));
+    assert.deepEqual(APIUtils.normalizeResponse(beforeObj), afterObj);
   });
 
-  it('should make a GET request', function() {
-    let path = 'auth/check';
+  it('#get should make a GET request', function() {
+    const path = 'auth/check';
 
-    sandbox.mock(request).expects('get').withArgs('http://localhost:3000/api/' + path);
+    sandbox.stub(request, 'get');
 
     APIUtils.get(path);
+
+    sinon.assert.calledOnce(request.get);
+    sinon.assert.calledWith(request.get, APIUtils.root + path);
   });
 
-  it('should make a POST request', function() {
-    let path = 'auth/login';
-    let user = {
+  it('#post should make a POST request', function() {
+    const path = 'auth/login';
+    const user = {
       username: 'test',
       password: 'test'
     };
 
-    sandbox.mock(request).expects('post').withArgs('http://localhost:3000/api/' + path, user);
+    sandbox.stub(request, 'post');
 
     APIUtils.post(path, user);
+
+    sinon.assert.calledOnce(request.post);
+    sinon.assert.calledWith(request.post, APIUtils.root + path, user);
   });
 
-  it('should make a PATCH request', function() {
-    let path = 'user/1';
-    let user = {
+  it('#patch should make a PATCH request', function() {
+    const path = 'user/1';
+    const user = {
       email: 'new@test.com'
     };
 
-    sandbox.mock(request).expects('patch').withArgs('http://localhost:3000/api/' + path, user);
+    sandbox.stub(request, 'patch');
 
     APIUtils.patch(path, user);
+
+    sinon.assert.calledOnce(request.patch);
+    sinon.assert.calledWith(request.patch, APIUtils.root + path, user);
   });
 
-  it('should make a PUT request', function() {
-    let path = 'user/1';
-    let user = {
+  it('#put should make a PUT request', function() {
+    const path = 'user/1';
+    const user = {
       email: 'new@test.com'
     };
 
-    sandbox.mock(request).expects('put').withArgs('http://localhost:3000/api/' + path, user);
+    sandbox.stub(request, 'put');
 
     APIUtils.put(path, user);
+
+    sinon.assert.calledOnce(request.put);
+    sinon.assert.calledWith(request.put, APIUtils.root + path, user);
   });
 
-  it('should make a DEL request', function() {
-    let path = 'user/1';
+  it('#del should make a DELETE request', function() {
+    const path = 'user/1';
 
-    sandbox.mock(request).expects('del').withArgs('http://localhost:3000/api/' + path);
+    sandbox.stub(request, 'del');
 
     APIUtils.del(path);
+
+    sinon.assert.calledOnce(request.del);
+    sinon.assert.calledWith(request.del, APIUtils.root + path);
   });
 
 });

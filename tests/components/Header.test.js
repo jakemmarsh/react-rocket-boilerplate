@@ -22,7 +22,7 @@ describe('Component: Header', function() {
   });
 
   it('should render properly', function() {
-    assert.DoesNotThrow(TestUtils.findRenderedDOMComponentWithTag.bind(null, rendered, 'header'));
+    assert.doesNotThrow(TestUtils.findRenderedDOMComponentWithTag.bind(null, rendered, 'header'));
   });
 
 });
