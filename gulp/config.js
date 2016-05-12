@@ -7,7 +7,9 @@ const config = {
 
   scripts: {
     src: './app/js/**/*.js',
-    dest: './build/js/'
+    dest: './build/js/',
+    test: './tests/**/*.js',
+    gulp: './gulp/**/*.js'
   },
 
   images: {

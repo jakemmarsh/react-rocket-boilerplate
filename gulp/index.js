@@ -1,9 +1,10 @@
 'use strict';
 
-var fs = require('fs');
-var onlyScripts = require('./util/script-filter');
-var tasks = fs.readdirSync('./gulp/tasks/').filter(onlyScripts);
+import fs          from 'fs';
+import onlyScripts from './util/script-filter';
 
-tasks.forEach(function(task) {
+const TASKS = fs.readdirSync('./gulp/tasks/').filter(onlyScripts);
+
+TASKS.forEach(function(task) {
   require('./tasks/' + task);
 });

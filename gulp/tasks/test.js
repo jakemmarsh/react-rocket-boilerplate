@@ -22,7 +22,7 @@ gulp.task('test', () => {
     files = ['tests/helper.js', singleFile];
   } else {
     // Default to all test files
-    files = [config.testFiles];
+    files = [config.scripts.test];
   }
 
   // Ensure that all window/DOM related properties
