@@ -67,7 +67,8 @@
     "yargs": "^3.27.0"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/gulp lint",
-    "test": "./node_modules/.bin/gulp test"
+    "lint": "NODE_ENV=test ./node_modules/.bin/gulp lint",
+    "test": "NODE_ENV=test ./node_modules/.bin/gulp test",
+    "build": "NODE_ENV=production ./node_modules/.bin/gulp prod"
   }
 }
