@@ -14,11 +14,6 @@
     "sass",
     "boilerplate"
   ],
-  "private": true,
-  "engines": {
-    "node": "^4.2.3",
-    "npm": "^2.14.7"
-  },
   "devDependencies": {
     "babel-core": "^6.3.15",
     "babel-eslint": "^5.0.0-beta4",
