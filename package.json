@@ -16,8 +16,8 @@
   ],
   "private": true,
   "engines": {
-    "node": "^0.12.x",
-    "npm": "^2.1.x"
+    "node": "^4.2.3",
+    "npm": "^2.14.7"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
