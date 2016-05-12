@@ -13,7 +13,7 @@ A boilerplate using ReactJS (along with React Router and RefluxJS), SASS, Gulp, 
 2. Run `npm install` from the root directory
 3. Run `gulp dev` (may require installing Gulp globally `npm install gulp -g`)
 4. Your browser will automatically be opened and directed to the browser-sync proxy address
-5. To prepare assets for production, run the `gulp prod` task (Note: the production task does not fire up the browser-sync server, and won't provide you with browser-sync's live reloading. Simply use `gulp dev` during development. More information below)
+5. To prepare assets for production, run the `npm run build` task (Note: the production task does not fire up the browser-sync server, and won't provide you with browser-sync's live reloading. Simply use `gulp dev` during development. More information below)
 
 Now that `gulp dev` is running, the server is up as well and serving files from the `/build` directory. Any changes in the `/app` directory will be automatically processed by Gulp and the changes will be injected to any open browsers pointed at the proxy address.
 
@@ -35,7 +35,7 @@ Along with many Gulp libraries (these can be seen in either `package.json`, or a
 ### Running tests
 
 1. If you haven't already, follow steps 1 & 2 above
-2. If you haven't already run `gulp dev` or `gulp prod` at least once, run `gulp prod`
+2. If you haven't already run `gulp dev` or `npm run build` at least once, run `npm run build`
 3. Run all tests in the `tests/` directory with the `gulp test` command
   * A single file can be run by specifing an `-f` flag: `gulp test -f <PATH_TO_TEST_FILE>`
     * In the `PATH_TO_TEST_FILE`, it is possible to omit the `tests/` prefix, as well as the `.test.js` suffix. They will be automatically added if not detected.
@@ -151,7 +151,7 @@ Just one task is necessary for processing our SASS files, and that is `gulp-sass
 
 ##### Images
 
-Any images placed within `/app/images` will be automatically copied to the `build/images` directory. If running `gulp prod`, they will also be compressed via imagemin.
+Any images placed within `/app/images` will be automatically copied to the `build/images` directory. If running `npm run build`, they will also be compressed via imagemin.
 
 ##### Watching files
 
@@ -159,6 +159,6 @@ All of the Gulp processes mentioned above are run automatically when any of the 
 
 ##### Production Task
 
-Just as there is the `gulp dev` task for development, there is also a `gulp prod` task for putting your project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty `gulp deploy` task that is included when running the production task. This deploy task can be fleshed out to automatically push your production-ready site to your hosting setup.
+Just as there is the `gulp dev` task for development, there is also a `npm run build` task for putting your project into a production-ready state. This will run each of the tasks, while also adding the image minification task discussed above. There is also an empty `gulp deploy` task that is included when running the production task. This deploy task can be fleshed out to automatically push your production-ready site to your hosting setup.
 
 **Reminder:** When running the production task, gulp will not fire up the express server and serve your index.html. This task is designed to be run before the `deploy` step that may copy the files from `/build` to a production web server.
