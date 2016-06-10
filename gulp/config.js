@@ -31,6 +31,7 @@ const config = {
   assetExtensions: [
     'js',
     'css',
+    'map',
     'png',
     'jpe?g',
     'gif',
